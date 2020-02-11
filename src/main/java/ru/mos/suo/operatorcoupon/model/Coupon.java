@@ -1,42 +1,131 @@
 package ru.mos.suo.operatorcoupon.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name="suo_aismfc_coupon")
-public class Coupon {
+public class Coupon implements Serializable {
 
     private static final int serialVersionUID = 1;
 
     @Id
-    private Long id;
+    private Long mid;
 
-    private final String msgId;
+    @Column(name="msgid")
+    private String msgId;
 
-    private final Date msgDate;
+    private Date msgdate;
 
-    private final String operatorEMail;
+    @Column(name = "operatoremail")
+    private String operatorEmail;
 
-    private final String couponNumber;
+    @Column(name = "couponnumber")
+    private String couponNumber;
 
-    private final String operatorId;
+    @Column(name="operatorid")
+    private String operatorId;
 
-    private final String serviceTypeCodeSuo;
+    @Column(name="servicetypecodesuo")
+    private String serviceTypeCodeSuo;
 
-    private final String serviceTypeNameSuo;
+    @Column(name="servicetypenamesuo")
+    private String serviceTypeNameSuo;
 
-    private final String callIdSuo;
+    @Column(name="callidsuo")
+    private String callIdSuo;
 
-    private final Date created;
+    private Date created;
 
+    public Long getMid() {
+        return mid;
+    }
 
-    public Coupon(String msgId, Date msgDate, String operatorEMail, String couponNumber, String operatorId, String serviceTypeCodeSuo, String serviceTypeNameSuo, String callIdSuo, Date created) {
+    public void setMid(Long mid) {
+        this.mid = mid;
+    }
+
+    public String getMsgId() {
+        return msgId;
+    }
+
+    public void setMsgId(String msgId) {
         this.msgId = msgId;
-        this.msgDate = msgDate;
-        this.operatorEMail = operatorEMail;
+    }
+
+    public Date getMsgdate() {
+        return msgdate;
+    }
+
+    public void setMsgdate(Date msgdate) {
+        this.msgdate = msgdate;
+    }
+
+    public String getOperatorEmail() {
+        return operatorEmail;
+    }
+
+    public void setOperatorEmail(String operatorEmail) {
+        this.operatorEmail = operatorEmail;
+    }
+
+    public String getCouponNumber() {
+        return couponNumber;
+    }
+
+    public void setCouponNumber(String couponNumber) {
+        this.couponNumber = couponNumber;
+    }
+
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    public String getServiceTypeCodeSuo() {
+        return serviceTypeCodeSuo;
+    }
+
+    public void setServiceTypeCodeSuo(String serviceTypeCodeSuo) {
+        this.serviceTypeCodeSuo = serviceTypeCodeSuo;
+    }
+
+    public String getServiceTypeNameSuo() {
+        return serviceTypeNameSuo;
+    }
+
+    public void setServiceTypeNameSuo(String serviceTypeNameSuo) {
+        this.serviceTypeNameSuo = serviceTypeNameSuo;
+    }
+
+    public String getCallIdSuo() {
+        return callIdSuo;
+    }
+
+    public void setCallIdSuo(String callIdSuo) {
+        this.callIdSuo = callIdSuo;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Coupon(Long mid, String msgId, Date msgdate, String operatorEmail, String couponNumber, String operatorId, String serviceTypeCodeSuo, String serviceTypeNameSuo, String callIdSuo, Date created) {
+        this.mid = mid;
+        this.msgId = msgId;
+        this.msgdate = msgdate;
+        this.operatorEmail = operatorEmail;
         this.couponNumber = couponNumber;
         this.operatorId = operatorId;
         this.serviceTypeCodeSuo = serviceTypeCodeSuo;
@@ -45,43 +134,5 @@ public class Coupon {
         this.created = created;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getMsgId() {
-        return msgId;
-    }
-
-    public Date getMsgDate() {
-        return msgDate;
-    }
-
-    public String getOperatorEMail() {
-        return operatorEMail;
-    }
-
-    public String getCouponNumber() {
-        return couponNumber;
-    }
-
-    public String getOperatorId() {
-        return operatorId;
-    }
-
-    public String getServiceTypeCodeSuo() {
-        return serviceTypeCodeSuo;
-    }
-
-    public String getServiceTypeNameSuo() {
-        return serviceTypeNameSuo;
-    }
-
-    public String getCallIdSuo() {
-        return callIdSuo;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
+    public Coupon() {}
 }

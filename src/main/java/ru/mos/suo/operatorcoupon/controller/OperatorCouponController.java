@@ -1,5 +1,6 @@
 package ru.mos.suo.operatorcoupon.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +21,11 @@ public class OperatorCouponController {
 
         CouponDTO resultFromDb = operatorCouponRepository.findLastCoupon(operatorLogin);
 
-         if (resultFromDb != null) {
-             return new ResponseEntity<>(resultFromDb, HttpStatus.OK);
-         }else {
-             return new ResponseEntity<>("{\"ERROR\":\"Данные  для такого operatorLogin не найдены\"}", HttpStatus.BAD_REQUEST);
-         }
-
+        if (resultFromDb != null) {
+            return new ResponseEntity<>(resultFromDb, HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>("{\"ERROR\":\"Данные  для такого operatorLogin не найдены\"}", HttpStatus.BAD_REQUEST);
+        }
     }
 }
 

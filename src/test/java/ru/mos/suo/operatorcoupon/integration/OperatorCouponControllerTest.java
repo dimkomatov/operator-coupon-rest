@@ -20,7 +20,7 @@ public class OperatorCouponControllerTest {
 
     private HttpHeaders headers = new HttpHeaders();
 
-    private String URI = "/operatorCoupon?operatorLogin=111";
+    private String URI = "http://localhost:8080/operatorCoupon?operatorLogin=111";
 
     private String expected = "{\"callIdSuo\":\"111\",\"couponNumber\":\"111\"}";
 
@@ -30,15 +30,10 @@ public class OperatorCouponControllerTest {
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort(URI),
+                URI,
                 HttpMethod.GET, entity, String.class);
 
         JSONAssert.assertEquals(expected, response.getBody(), false);
     }
-
-    private String createURLWithPort(String uri) {
-        return "http://localhost:8080" + uri;
-    }
-
 
 }
